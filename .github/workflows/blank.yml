@@ -25,8 +25,11 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: oxnote
+          password: ${{ secrets.MY_DOCKER_HUB_PAT }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
